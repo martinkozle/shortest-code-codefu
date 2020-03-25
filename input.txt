@@ -1,0 +1,1 @@
+min(sum(abs(a[j-i] - b[j]) for j in range(len(a))) + i for i in range(len(a)))
