@@ -1,7 +1,12 @@
 import re
 
 class BeautifulString:
-    remove = lambda s, t: min(min(map(len, ('                                                                                                  %s                                                                                                  ' % t).split(i))) + 1 for i in t) % 99 - 1
+  remove = lambda _,a: min(a[i:].find(a[i],1) % 99 for i in range(len(a))) % 98 - 1
+
+# e = enumerate
+# class BeautifulString:
+#     # remove = lambda s, t: min(abs(j - i) for j, k in e(t) for i, p in e(t) if k == p and j - i) - 1
+#     remove = lambda s, t: min(min(map(len, t.split(i)[1:-1]), default=98) for i in t) + 1 % 99 - 1
 
 # f=lambda s:set(s)and{s}|f(s[1:])|f(s[:-1])
 # class BeautifulString:
@@ -14,10 +19,10 @@ class BeautifulString:
 
 
 bs = BeautifulString()
-print(bs.remove("nfsloxcpfijv"))
-print(bs.remove("fdcsaytrntdlrv"))
-print(bs.remove("orbajcknlagsknjbrfhkoltdcyawnoku"))
-print(bs.remove("omvxfdinaewlfvtdbiykvlxmghbkfpdnamruiwkhytjicgnvofdgwbtxjqlfybnxtsvucpyfrxsueglihadysfwxgjobwagdlipt"))
+print(bs.remove("nfsloxcpfijv"))  # 6
+print(bs.remove("fdcsaytrntdlrv"))  # 2
+print(bs.remove("orbajcknlagsknjbrfhkoltdcyawnoku"))  # 5
+print(bs.remove("omvxfdinaewlfvtdbiykvlxmghbkfpdnamruiwkhytjicgnvofdgwbtxjqlfybnxtsvucpyfrxsueglihadysfwxgjobwagdlipt"))  # 5
 
 """
 class BeautifulString:

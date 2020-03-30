@@ -2,20 +2,35 @@ import re
 import collections
 
 class WordPuzzle:
-    getMostReoccuringLength = lambda s, b: eval("len(max(`, key=`.count))".replace('`', "sorted('X'.join(b).split('X'))[::-1]"))
+    getMostReoccuringLength = lambda s, b: max(range(99, 0, -1), key=[len(i) for i in re.findall("\.+", str(b))].count)
 
 # class WordPuzzle:
-#     getMostReoccuringLength = lambda s, b: -max(range(-99, 0), key=[-len(i) for i in 'X'.join(b).split('X')].count)
+#     getMostReoccuringLength = lambda s, b: len(max(['.' * i for i in range(99, 0, -1)], key=' '.join(b).replace('X', ' ').split().count))
+
+
+# class WordPuzzle:
+#     getMostReoccuringLength = lambda s, b: max(range(99, 0, -1), key=[-~i.find('.X..') or i.count('.') for i in b].count)
+
+
+# class WordPuzzle:
+#     getMostReoccuringLength = lambda s, b: ('..X..' in b) * 2 or max(([i.count('.') for i in b].count(i), i) for i in range(99, 0, -1))[1]
+
+# class WordPuzzle:
+#     getMostReoccuringLength = lambda s, b: eval('-max(%s,key=%s.count)' % (("sorted(-len(i) for i in 'X'.join(b).split('X') if i)",) * 2))
+
+# class WordPuzzle:
+#     getMostReoccuringLength = lambda s, b: eval('len(max((`.count(j), j) for j in `)[1])'.replace('`', "list(filter(len, 'X'.join(b).split('X')))"))
+
+# class WordPuzzle:
+#     getMostReoccuringLength = lambda s, b: eval("len(max(`, key=`.count))".replace('`', "sorted('X'.join(b).split('X'))[:-1:-1]"))
 
 # class WordPuzzle:
 #     getMostReoccuringLength = lambda s, b: -max(range(-99, 0), key=[-len(i) for i in [j.split('X') for j in b]].count)
 # class WordPuzzle:
-#     def getMostReoccuringLength(s, b):
-#         *d, = filter(len, 'X'.join(b).split('X'))
-#         return len(max((d.count(j), j) for j in d)[1])
-    # getMostReoccuringLength = lambda s, b: max(([len(i) for i in 'X'.join(b).split('X')].count(j), j) for j in range(1, 99))[1]
+#     getMostReoccuringLength = lambda s, b: eval("len(max((list(filter(len, 'X'.join(b).split('X'))).count(j), j) for j in list(filter(len, 'X'.join(b).split('X'))))[1])")
+# getMostReoccuringLength = lambda s, b: max(([len(i) for i in 'X'.join(b).split('X')].count(j), j) for j in range(1, 99))[1]
 
-    # getMostReoccuringLength = lambda s, b: {[len(i) for i in 'X'.join(b).split('X')].count(j): j for j in range(1, 100)}
+# getMostReoccuringLength = lambda s, b: {[len(i) for i in 'X'.join(b).split('X')].count(j): j for j in range(1, 100)}
 
 
 # class WordPuzzle:
@@ -27,6 +42,7 @@ class WordPuzzle:
 #  d = len(sorted(['X' + '.' * i + 'X' for i in range(1, 99)], key=('X' + 'X'.join(b) + 'X').count)[-1]) - 2
 
 wp = WordPuzzle()
+print(wp.getMostReoccuringLength(["..X..", "...X.", "X...."]))
 print(wp.getMostReoccuringLength(
     ["X...................", "XX...............XXX", "XXXX............XXXX", "XXXXXXXXXXXXXXX....X",
      "X..............XXXXX", "XX..................", "XXXXXXXXXX.......XXX"]))
@@ -46,8 +62,23 @@ print(wp.getMostReoccuringLength(
 
 """
 class WordPuzzle:
+    getMostReoccuringLength = lambda s, b: -max(range(-99, 0), key=[i.count('.') / ~('.X.' in i) for i in b].count)
+"""  # 388 SUBMITTED
+
+"""
+class WordPuzzle:
+    getMostReoccuringLength = lambda s, b: max(range(99, 0, -1), key=[i.count('.') >> ('.X.' in i) for i in b].count)
+"""  # 387
+
+"""
+class WordPuzzle:
+    getMostReoccuringLength = lambda s, b: -max(range(-99, 0), key=[-i.count('.') >> ('.X.' in i) for i in b].count)
+"""  # 387
+
+"""
+class WordPuzzle:
     getMostReoccuringLength = lambda s, b: -max(range(-99, 0), key=[-len(i) for i in 'X'.join(b).split('X')].count)
-"""  # 384 SUBMITTED WHY DAFUQ DID I NEED THE if i
+"""  # 384
 
 """
 class WordPuzzle:

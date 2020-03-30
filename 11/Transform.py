@@ -1,7 +1,8 @@
-
 e = enumerate
+
+
 class Transform:
-    minTransformations = lambda s, a, b: min(sum(abs(i - j) for i, j in zip(a[-i:] + a, b)) + i for i in range(99))
+    minTransformations = lambda s, a, b: min(sum(abs(i - j) for i, j in zip(a, b[i:] + b)) + i for i in range(99))
     # def minTransformations(s, a, b):
     #     i = 0
     #     for x in a:
@@ -10,16 +11,17 @@ class Transform:
     #     return
 
 
+
 # class Transform:
 #     minTransformations = d = lambda s, a, b, r=0: r > 99 and 1e9 or min(sum(abs(i - j) for i, j in zip(a, b)) + r, s.d(a[-1:] + a[:-1], b, r+1))
 
 # class Transform:
 #     minTransformations = d = lambda s, a, b: min(sum(map(lambda x, y: abs(x - y), a[-i:] + a, b)) + i for i in range(99))
-    # minTransformations = lambda s, a, b: min(sum(abs(a[j-i] - p) for j, p in e(b)) + i for i, _ in e(a))
-    # def minTransformations(s, a, b, r=0):
-    #     print(a, b, r)
-    #     print(sum(abs(i - j) for i, j in zip(a, b)) + r)
-    #     return min(sum(abs(i - j) for i, j in zip(a, b)) + r, s.minTransformations(a[-1:] + a[:-1], b, r+1)) if r < 99 else 1e9
+# minTransformations = lambda s, a, b: min(sum(abs(a[j-i] - p) for j, p in e(b)) + i for i, _ in e(a))
+# def minTransformations(s, a, b, r=0):
+#     print(a, b, r)
+#     print(sum(abs(i - j) for i, j in zip(a, b)) + r)
+#     return min(sum(abs(i - j) for i, j in zip(a, b)) + r, s.minTransformations(a[-1:] + a[:-1], b, r+1)) if r < 99 else 1e9
 
 
 # d = min(sum(abs(a[j-i] - b[j]) for j in range(len(a))) + i for i in range(len(a)))
@@ -28,8 +30,13 @@ print(tr.minTransformations([8, 5, 1, 10, 5, 9, 9], [3, 5, 6, 6, 2, 8, 2]))
 
 """
 class Transform:
+    minTransformations = lambda s, a, b: min(sum(abs(i - j) for i, j in zip(a, b[i:] + b)) + i for i in range(99))
+"""  # 397 SUBMITTED
+
+"""
+class Transform:
     minTransformations = lambda s, a, b: min(sum(abs(i - j) for i, j in zip(a[-i:] + a, b)) + i for i in range(99))
-"""  # 396 SUBMITTED
+"""  # 396
 
 """
 e = enumerate

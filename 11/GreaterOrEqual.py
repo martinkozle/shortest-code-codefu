@@ -1,17 +1,80 @@
 import bisect
+import heapq
 
 
 class GreaterOrEqual:
-    getMinimumX = lambda s, t, k: eval('-( ]== +1]or~ ])'.replace(' ', str(sorted([0] + t)) + '[~k'))
+    def getMinimumX(s, t, k):
+        a, *p = sorted([0] + t)[~k:]
+        return -(a in p or ~a)
+
+
+# class GreaterOrEqual:
+#     def getMinimumX(s, t, k):
+#         *_, a, b = [0] + heapq.nlargest(k + 1, [0] + t)
+#         return -(b == a or ~b)
+
+# class GreaterOrEqual:
+#     def getMinimumX(s, t, k):
+#         t += 0,
+#         t.sort()
+#         p = ~t[~k]
+#         return -(~t[-k] >= p or p)
+
+# class GreaterOrEqual:
+#    def getMinimumX(s, t, k):
+#        t += 0,
+#        t.sort()
+#        p = t[~k]
+#        return -(p < t[-k]) & p + 1
+
+# class GreaterOrEqual:
+#     def getMinimumX(s, t, k):
+#         t += 0,
+#         t.sort()
+#         p = t[~k]
+#         return -(p > t[-k] or ~p)
+
+# class GreaterOrEqual:
+#     getMinimumX = lambda s, t, k: eval("-( ]== +1]or~ ])".replace(' ', "sorted([0] + t)[~k"))
+
+# class GreaterOrEqual:
+#     def getMinimumX(s, t, k):
+#         t += 0,
+#         t.sort()
+#         a, b = t[~k], t[-k]
+#         return -(a == b or ~a)
+
+# class GreaterOrEqual:
+#     getMinimumX = lambda s, t, k: -(t.append(0) or t.sort() or t[~k] == t[-k] or ~t[~k])
+
+# class GreaterOrEqual:
+#     getMinimumX = lambda s, t, k: (t.append(0) != t.sort()) | -(t[~k] == t[-k] or ~t[~k])
+
+# class GreaterOrEqual:
+#     def getMinimumX(s, t, k):
+#         t.sort()
+#         return -(([0] + t)[~k] == t[-k] or ~([0] + t)[~k])
+
+# class GreaterOrEqual:
+#     def getMinimumX(s, t, k):
+#         t += 0,
+#         t.sort()
+#         n = t[~k]
+#         return -(t.count(n) > 1 or ~n)
+
+# f = lambda x, i: sorted([0] + x)[~i]
+#
+#
+
 
 # class GreaterOrEqual:
 #     getMinimumX = lambda s, t, k: -~next((x for x in [0] + t if sum(i > x for i in t) == k), -2)
-    # getMinimumX = lambda s, t, k: ([x for x in [0] + t if sum(i > x for i in t) == k] + [-2])[0] + 1
+# getMinimumX = lambda s, t, k: ([x for x in [0] + t if sum(i > x for i in t) == k] + [-2])[0] + 1
 
-    # getMinimumX = lambda s, t, k: sorted([0] + t)[-k-1] + 1
-    # getMinimumX = lambda s, t, k: ([i + 1 for i in t if len(t) - sorted(t).index(i) - 1 == k] + [len(t) == k or -1])[0]
-    # getMinimumX = lambda s, t, k: sorted(t)[max([8 - bisect.bisect(sorted(t), i + 1) for i in t + [0]])]
-    # getMinimumX = lambda s, t, k: (list(filter(lambda x: sum(i >= x for i in t) == k, range(1, 7**6))) + [-1])[0]
+# getMinimumX = lambda s, t, k: sorted([0] + t)[-k-1] + 1
+# getMinimumX = lambda s, t, k: ([i + 1 for i in t if len(t) - sorted(t).index(i) - 1 == k] + [len(t) == k or -1])[0]
+# getMinimumX = lambda s, t, k: sorted(t)[max([8 - bisect.bisect(sorted(t), i + 1) for i in t + [0]])]
+# getMinimumX = lambda s, t, k: (list(filter(lambda x: sum(i >= x for i in t) == k, range(1, 7**6))) + [-1])[0]
 
 
 # getMinimumX = lambda s, t, k:  if len([i for i in t if i > k])
@@ -30,8 +93,26 @@ class GreaterOrEqual:
     def getMinimumX(s, t, k):
         t += 0,
         t.sort()
+        p = t[~k]
+        return -(p == t[-k] or ~p)
+"""  # 417 SUBMITTED
+
+"""
+class GreaterOrEqual:
+    def getMinimumX(s, t, k):
+        t += 0,
+        t.sort()
+        p = t[~k]
+        return -(p == t[-k]) | p + 1
+"""  # 417
+
+"""
+class GreaterOrEqual:
+    def getMinimumX(s, t, k):
+        t += 0,
+        t.sort()
         return -(t[~k] == t[-k] or ~t[~k])
-"""  # 416 SUBMITTED
+"""  # 416
 
 """
 class GreaterOrEqual:
@@ -40,6 +121,15 @@ class GreaterOrEqual:
         t.sort()
         return -(t[~k] == t[-k]) | t[~k] + 1
 """  # 416 gospod znae kako raboti ova
+
+"""
+class GreaterOrEqual:
+    def getMinimumX(s, t, k):
+        t += 0,
+        t.sort()
+        p = ~t[~k]
+        return -p ** (p != ~t[-k])
+"""  # 416
 
 """
 class GreaterOrEqual:
