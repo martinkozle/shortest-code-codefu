@@ -1,8 +1,13 @@
 import re
 import collections
 
+# --
+
 class WordPuzzle:
     getMostReoccuringLength = lambda s, b: max(range(99, 0, -1), key=[len(i) for i in re.findall("\.+", str(b))].count)
+
+
+# --
 
 # class WordPuzzle:
 #     getMostReoccuringLength = lambda s, b: len(max(['.' * i for i in range(99, 0, -1)], key=' '.join(b).replace('X', ' ').split().count))

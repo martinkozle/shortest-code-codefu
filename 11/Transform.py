@@ -1,16 +1,18 @@
 e = enumerate
 
+# --
 
 class Transform:
     minTransformations = lambda s, a, b: min(sum(abs(i - j) for i, j in zip(a, b[i:] + b)) + i for i in range(99))
+
+# --
+
     # def minTransformations(s, a, b):
     #     i = 0
     #     for x in a:
     #         min(sum(abs(i - j) for i, j in zip(a[-i:] + a, b)) + i
     #         i += 1
     #     return
-
-
 
 # class Transform:
 #     minTransformations = d = lambda s, a, b, r=0: r > 99 and 1e9 or min(sum(abs(i - j) for i, j in zip(a, b)) + r, s.d(a[-1:] + a[:-1], b, r+1))

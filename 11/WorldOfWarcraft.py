@@ -1,3 +1,4 @@
+# --
 
 class WorldOfWarcraft:
     def getExperience(s, r, l, t):
@@ -5,6 +6,8 @@ class WorldOfWarcraft:
             r -= i
             if r < 0:
                 return -r
+
+# --
 
 # class WorldOfWarcraft:
 #     getExperience = d = lambda s, r, l, t: -r if r < 0 else s.d(r-t[l - len(t)], l + 1, t)

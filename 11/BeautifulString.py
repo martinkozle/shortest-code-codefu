@@ -1,7 +1,12 @@
 import re
 
+# --
+
 class BeautifulString:
   remove = lambda _,a: min(a[i:].find(a[i],1) % 99 for i in range(len(a))) % 98 - 1
+
+
+# --
 
 # e = enumerate
 # class BeautifulString:

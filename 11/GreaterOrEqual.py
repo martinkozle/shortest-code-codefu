@@ -1,12 +1,13 @@
 import bisect
 import heapq
-
+# --
 
 class GreaterOrEqual:
     def getMinimumX(s, t, k):
         a, *p = sorted([0] + t)[~k:]
         return -(a in p or ~a)
 
+# --
 
 # class GreaterOrEqual:
 #     def getMinimumX(s, t, k):
